@@ -5,7 +5,7 @@ The source of the specification is
 [here](http://homepages.rootsweb.com/~pmcbride/gedcom/55gcch2.htm)  
 As a test I used the example at the end of that same page, however I modified it slightly, please compare the original file with my own updates
 
-####Warning: This model is not a valid gedcom model yet! 
+#### Warning: This model is not a valid gedcom model yet!  
 Use on your own responsibility  
 Following elements are still in work (no guarantee on completeness of list): 
 
