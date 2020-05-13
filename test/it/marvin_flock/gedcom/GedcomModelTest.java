@@ -91,7 +91,7 @@ class GedcomModelTest {
         RepositoryRecord repo = buildRepo();
 
         // --------------------------------
-        //           REPO Record
+        //         Family 2 Record
         // --------------------------------
         FamilyRecord fam2 = buildFam2();
 
