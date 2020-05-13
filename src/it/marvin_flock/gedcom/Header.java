@@ -2,8 +2,9 @@ package it.marvin_flock.gedcom;
 
 import it.marvin_flock.gedcom.dates.DateTime;
 import it.marvin_flock.gedcom.sources.Sour;
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class Header extends GedcomElement {
 
     private final Sour source;

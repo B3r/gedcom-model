@@ -2,8 +2,9 @@ package it.marvin_flock.gedcom.sources;
 
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.structures.AddressStructure;
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class Sour extends GedcomElement {
 
     private final String approvedSystemId;

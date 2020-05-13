@@ -1,7 +1,9 @@
 package it.marvin_flock.gedcom.dates;
 
+import lombok.Getter;
 import lombok.NonNull;
 
+@Getter
 public class DatePeriod implements IDate {
     private final IDate from;
     private final IDate to;

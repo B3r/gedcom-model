@@ -2,9 +2,10 @@ package it.marvin_flock.gedcom.sources;
 
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 
 import java.util.List;
-
+@Getter
 public class SourceRepositoryCitation extends GedcomElement {
     private final Integer repositoryId;
     private List<NoteStructure> notes;

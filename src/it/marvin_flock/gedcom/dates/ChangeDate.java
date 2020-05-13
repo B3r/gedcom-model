@@ -1,12 +1,14 @@
 package it.marvin_flock.gedcom.dates;
 
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+@Getter
 public class ChangeDate extends DateTime {
     private List<NoteStructure> notes;
 

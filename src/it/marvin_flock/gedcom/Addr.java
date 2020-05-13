@@ -1,7 +1,8 @@
 package it.marvin_flock.gedcom;
 
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class Addr extends GedcomElement {
 
     private final String address;

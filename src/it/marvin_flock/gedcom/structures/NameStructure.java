@@ -4,10 +4,11 @@ import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.NamePiece;
 import it.marvin_flock.gedcom.NameVariation;
 import it.marvin_flock.gedcom.enums.NameType;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class NameStructure extends GedcomElement {
 
     private final String lastName;

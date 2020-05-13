@@ -4,9 +4,11 @@ import it.marvin_flock.gedcom.dates.DateValue;
 import it.marvin_flock.gedcom.enums.BaptismStatus;
 import it.marvin_flock.gedcom.sources.SourceCitation;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 public class BaptismOrdinance extends Ordinance {
 
     private final BaptismStatus status;

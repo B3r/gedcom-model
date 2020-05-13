@@ -10,10 +10,11 @@ import it.marvin_flock.gedcom.enums.Sex;
 import it.marvin_flock.gedcom.ordinance.Ordinance;
 import it.marvin_flock.gedcom.sources.SourceCitation;
 import it.marvin_flock.gedcom.structures.*;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class IndividualRecord extends Record {
 
     private final Restriction restrictionNotice;

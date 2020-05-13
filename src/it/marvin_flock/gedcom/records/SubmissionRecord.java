@@ -2,10 +2,11 @@ package it.marvin_flock.gedcom.records;
 
 import it.marvin_flock.gedcom.dates.ChangeDate;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class SubmissionRecord extends Record {
 
     private final Integer submitterReferenceId;

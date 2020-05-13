@@ -3,8 +3,9 @@ package it.marvin_flock.gedcom.structures;
 import it.marvin_flock.gedcom.EventDetail;
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.enums.AttributeType;
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class IndividualAttributeStructure extends GedcomElement {
 
     private final AttributeType type;

@@ -6,10 +6,11 @@ import it.marvin_flock.gedcom.dates.ChangeDate;
 import it.marvin_flock.gedcom.sources.SourceData;
 import it.marvin_flock.gedcom.sources.SourceRepositoryCitation;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class SourceRecord extends Record {
 
     private final SourceData data;

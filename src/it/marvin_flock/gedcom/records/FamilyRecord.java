@@ -8,10 +8,11 @@ import it.marvin_flock.gedcom.ordinance.SpouseSealing;
 import it.marvin_flock.gedcom.sources.SourceCitation;
 import it.marvin_flock.gedcom.structures.FamilyEventStructure;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class FamilyRecord extends Record {
 
     private final Restriction restrictionNotice;

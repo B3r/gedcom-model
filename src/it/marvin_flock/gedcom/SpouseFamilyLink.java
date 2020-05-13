@@ -1,10 +1,11 @@
 package it.marvin_flock.gedcom;
 
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class SpouseFamilyLink extends FamilyLink {
 
     public SpouseFamilyLink(@NonNull Integer familyId, List<NoteStructure> notes) {

@@ -3,10 +3,11 @@ package it.marvin_flock.gedcom.structures;
 
 import it.marvin_flock.gedcom.Addr;
 import it.marvin_flock.gedcom.GedcomElement;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class AddressStructure extends GedcomElement {
 
     private final Addr address;

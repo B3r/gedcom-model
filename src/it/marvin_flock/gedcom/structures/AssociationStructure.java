@@ -2,6 +2,7 @@ package it.marvin_flock.gedcom.structures;
 
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.sources.SourceCitation;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * Specification says that individualId is {0:M}, is it a copy/paste error?
  * How can it be 0 when there is a mandatory Relation {1:1}?
  */
+@Getter
 public class AssociationStructure extends GedcomElement {
     private final Integer individualId;
     private final String relation;

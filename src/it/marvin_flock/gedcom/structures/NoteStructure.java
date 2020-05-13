@@ -1,8 +1,9 @@
 package it.marvin_flock.gedcom.structures;
 
 import it.marvin_flock.gedcom.GedcomElement;
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class NoteStructure extends GedcomElement {
 
     private String text;

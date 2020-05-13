@@ -4,9 +4,10 @@ import it.marvin_flock.gedcom.dates.DateValue;
 import it.marvin_flock.gedcom.enums.EndowmentStatus;
 import it.marvin_flock.gedcom.sources.SourceCitation;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 
 import java.util.List;
-
+@Getter
 public class EndowmentOrdinance extends Ordinance {
 
     private final EndowmentStatus status;

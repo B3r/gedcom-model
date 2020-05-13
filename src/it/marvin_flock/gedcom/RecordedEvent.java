@@ -2,11 +2,12 @@ package it.marvin_flock.gedcom;
 
 import it.marvin_flock.gedcom.dates.DatePeriod;
 import it.marvin_flock.gedcom.enums.EventAttribute;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Getter
 public class RecordedEvent extends GedcomElement {
     private final List<EventAttribute> types;
     private final DatePeriod date;

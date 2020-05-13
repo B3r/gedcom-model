@@ -1,7 +1,8 @@
 package it.marvin_flock.gedcom;
 
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class UserReference extends GedcomElement {
 
     private final String reference;

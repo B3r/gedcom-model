@@ -4,10 +4,11 @@ import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.MediaLink;
 import it.marvin_flock.gedcom.enums.Quay;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class SourceCitation extends GedcomElement {
     private final Integer sourceReferenceId;
     private final String page;

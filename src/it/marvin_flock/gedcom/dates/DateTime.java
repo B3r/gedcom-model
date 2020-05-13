@@ -1,11 +1,13 @@
 package it.marvin_flock.gedcom.dates;
 
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+@Getter
 public class DateTime extends DateExact {
 
     private LocalTime time;

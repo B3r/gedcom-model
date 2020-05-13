@@ -3,10 +3,11 @@ package it.marvin_flock.gedcom.records;
 import it.marvin_flock.gedcom.UserReference;
 import it.marvin_flock.gedcom.dates.ChangeDate;
 import it.marvin_flock.gedcom.sources.SourceCitation;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class NoteRecord extends Record {
 
     private final String text;

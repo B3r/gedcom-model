@@ -2,6 +2,7 @@ package it.marvin_flock.gedcom;
 
 import it.marvin_flock.gedcom.records.Record;
 import it.marvin_flock.gedcom.records.SubmissionRecord;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * it automatically appends a TRLR
  * this model is based on http://homepages.rootsweb.com/~pmcbride/gedcom/55gcch2.htm
  */
+@Getter
 public class GedcomModel {
 
     private final Header header;

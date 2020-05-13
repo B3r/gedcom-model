@@ -3,7 +3,9 @@ package it.marvin_flock.gedcom.sources;
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.enums.EventAttribute;
 import it.marvin_flock.gedcom.enums.Role;
+import lombok.Getter;
 
+@Getter
 public class SourceCitationEvent extends GedcomElement {
     private final EventAttribute type;
     private Role role;

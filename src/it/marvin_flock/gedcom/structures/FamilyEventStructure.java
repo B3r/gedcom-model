@@ -5,12 +5,14 @@ import it.marvin_flock.gedcom.EventDetail;
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.dates.GregorianDate;
 import it.marvin_flock.gedcom.enums.FamilyEventType;
+import lombok.Getter;
 import lombok.NonNull;
 
 
 /**
  * is age of husband and age of wife redundant with EventDetail.Age? Are specifications unclear?
  */
+@Getter
 public class FamilyEventStructure extends GedcomElement {
 
     private final FamilyEventType type;

@@ -4,10 +4,11 @@ package it.marvin_flock.gedcom.structures;
 import it.marvin_flock.gedcom.Coordinate;
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.NameVariation;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class PlaceStructure extends GedcomElement {
 
     private final String place;

@@ -1,8 +1,9 @@
 package it.marvin_flock.gedcom;
 
 import it.marvin_flock.gedcom.enums.VariationType;
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class NameVariation extends GedcomElement {
     private final VariationType variationType;
     private final String name;

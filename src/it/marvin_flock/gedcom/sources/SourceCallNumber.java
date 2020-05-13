@@ -2,8 +2,9 @@ package it.marvin_flock.gedcom.sources;
 
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.enums.MediaType;
+import lombok.Getter;
 import lombok.NonNull;
-
+@Getter
 public class SourceCallNumber extends GedcomElement {
 
     private final String callNumber;

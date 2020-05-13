@@ -4,10 +4,11 @@ import it.marvin_flock.gedcom.UserReference;
 import it.marvin_flock.gedcom.dates.ChangeDate;
 import it.marvin_flock.gedcom.structures.AddressStructure;
 import it.marvin_flock.gedcom.structures.NoteStructure;
+import lombok.Getter;
 import lombok.NonNull;
 
 import java.util.List;
-
+@Getter
 public class RepositoryRecord extends Record {
 
     private final String name;
