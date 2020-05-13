@@ -1,6 +1,10 @@
 package it.marvin_flock.gedcom.records;
 
+import it.marvin_flock.gedcom.dates.ChangeDate;
+import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.NonNull;
+
+import java.util.List;
 
 public class SubmissionRecord extends Record {
 
@@ -11,6 +15,8 @@ public class SubmissionRecord extends Record {
     private final Integer generationsOfDescendants;
     private final Boolean ordinanceProcess;
     private final String recordId;
+    private final List<NoteStructure> notes;
+    private final ChangeDate changeDate;
 
     public SubmissionRecord(Builder builder) {
         super(builder.id);
@@ -21,6 +27,8 @@ public class SubmissionRecord extends Record {
         this.generationsOfDescendants = builder.generationsOfDescendants;
         this.ordinanceProcess = builder.ordinanceProcess;
         this.recordId = builder.recordId;
+        this.notes = builder.notes;
+        this.changeDate = builder.changeDate;
     }
 
     @Override
@@ -43,13 +51,21 @@ public class SubmissionRecord extends Record {
             appendSimpleStringFor("DESC", Integer.toString(generationsOfDescendants), subLevel, sb);
         }
 
-        // did not use primitive to set field not at all
+        // null check needed to unset ORDI flag
         if (ordinanceProcess != null) {
             String flag = ordinanceProcess ? "yes" : "no";
             appendSimpleStringFor("ORDI", flag, subLevel, sb);
         }
 
         appendSimpleStringFor("RIN", recordId, subLevel, sb);
+
+        if (notes != null) {
+            notes.forEach(note -> sb.append(note.toString(subLevel)));
+        }
+
+        if (changeDate != null) {
+            sb.append(changeDate.toString(subLevel));
+        }
 
         return sb.toString();
     }
@@ -64,6 +80,8 @@ public class SubmissionRecord extends Record {
         private Integer generationsOfDescendants;
         private Boolean ordinanceProcess;
         private String recordId;
+        private List<NoteStructure> notes;
+        private ChangeDate changeDate;
 
         public Builder(int id) {
             this.id = id;
@@ -101,6 +119,16 @@ public class SubmissionRecord extends Record {
 
         public Builder withRecordId(@NonNull String recordId) {
             this.recordId = recordId;
+            return this;
+        }
+
+        public Builder withNotes(@NonNull List<NoteStructure> notes) {
+            this.notes = notes;
+            return this;
+        }
+
+        public Builder withChangeDate(@NonNull ChangeDate changeDate) {
+            this.changeDate = changeDate;
             return this;
         }
 

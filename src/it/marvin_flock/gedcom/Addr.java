@@ -2,8 +2,6 @@ package it.marvin_flock.gedcom;
 
 import lombok.NonNull;
 
-import java.util.List;
-
 public class Addr extends GedcomElement {
 
     private final String address;
@@ -11,7 +9,6 @@ public class Addr extends GedcomElement {
     private final String state;
     private final String postal;
     private final String country;
-    private final List<String> phones;
 
     private Addr(Builder builder) {
         this.address = builder.address;
@@ -19,7 +16,6 @@ public class Addr extends GedcomElement {
         this.state = builder.state;
         this.postal = builder.postal;
         this.country = builder.country;
-        this.phones = builder.phones;
     }
 
     public String toString(int level) {
@@ -37,7 +33,6 @@ public class Addr extends GedcomElement {
         appendSimpleStringFor("POST", postal, subLevel, sb);
         appendSimpleStringFor("CTRY", country, subLevel, sb);
 
-        appendMaxThreeFor(phones, "PHON", level, sb);
 
         return sb.toString();
     }
@@ -49,7 +44,6 @@ public class Addr extends GedcomElement {
         private String state;
         private String postal;
         private String country;
-        private List<String> phones;
 
         public Builder() {
             // no mandatory fields
@@ -77,11 +71,6 @@ public class Addr extends GedcomElement {
 
         public Builder withCountry(@NonNull String country) {
             this.country = country;
-            return this;
-        }
-
-        public Builder withPhones(@NonNull List<String> phones) {
-            this.phones = phones;
             return this;
         }
 

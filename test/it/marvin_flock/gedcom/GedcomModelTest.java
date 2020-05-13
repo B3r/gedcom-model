@@ -110,7 +110,8 @@ class GedcomModelTest {
 
     private RepositoryRecord buildRepo() {
         Addr.Builder addressBuilder = new Addr.Builder().withAddress("35 N West Temple Street Salt Lake City, Utah UT 84150");
-        return new RepositoryRecord.Builder(7).withName("Family History Library").withAddress(addressBuilder.build()).build();
+        AddressStructure.Builder addressStructureBuilder = new AddressStructure.Builder(addressBuilder.build());
+        return new RepositoryRecord.Builder(7,"Family History Library").withAddress(addressStructureBuilder.build()).build();
     }
 
     private SourceRecord buildSour() {
@@ -130,7 +131,7 @@ class GedcomModelTest {
         return new SourceRecord.Builder(6)
                 .withSourceData(sourceData)
                 .withTitle("Madison County Birth, Death, and Marriage Records")
-                .withShortTitle("VITAL RECORDS")
+                .withAbbreviation("VITAL RECORDS")
                 .withSourceRepositoryCitation(repoCit).build();
     }
 
@@ -148,9 +149,10 @@ class GedcomModelTest {
         // Furthermore for this example submitter has id 5
         SubmitterRecord.Builder submitterBuilder = new SubmitterRecord.Builder(5, "Reldon /Poulson/");
         Addr.Builder addressBuilder = new Addr.Builder()
-                .withAddress("1900 43rd Street West Billings, MT 68051")
+                .withAddress("1900 43rd Street West Billings, MT 68051");
+        AddressStructure.Builder asBuilder = new AddressStructure.Builder(addressBuilder.build())
                 .withPhones(Collections.singletonList("(406) 555-1232"));
-        return submitterBuilder.withAddress(addressBuilder.build()).build();
+        return submitterBuilder.withAddress(asBuilder.build()).build();
     }
 
     private FamilyRecord buildFam2() {
@@ -189,7 +191,7 @@ class GedcomModelTest {
         DateValue dv = new DateValue(DateCalendar.DGREGORIAN, new GregorianDate(1822, 10, 2), false);
         PlaceStructure.Builder placeBuilder = new PlaceStructure.Builder("Weston, Madison, Connecticut");
         SourceCitationEvent sourceCitationEvent = new SourceCitationEvent(EventAttribute.BIRT, Role.CHIL);
-        SourceCitationNotable.Builder sourceCitationBuilder = (SourceCitationNotable.Builder) new SourceCitationNotable.Builder(6).withPage("Sec. 2, p. 45").withEvent(sourceCitationEvent);
+        SourceCitation.Builder sourceCitationBuilder = new SourceCitation.Builder(6).withPage("Sec. 2, p. 45").withEvent(sourceCitationEvent);
         EventDetail.Builder ed = new EventDetail.Builder().withDate(dv).withPlace(placeBuilder.build()).withSourceCitations(Collections.singletonList(sourceCitationBuilder.build()));
 
         DateValue d_dv = new DateValue(DateCalendar.DGREGORIAN, new GregorianDate(1905, 4, 14), false);
@@ -208,7 +210,8 @@ class GedcomModelTest {
         DatePeriod resi_dp = new DatePeriod(from, to);
         DateValue resi_dv = new DateValue(DateCalendar.DGREGORIAN, resi_dp, false);
         Addr.Builder resi_ab = new Addr.Builder().withAddress("73 North Ashley Spencer, Utah UT84991");
-        EventDetail.Builder resi_ed = new EventDetail.Builder().withAddress(resi_ab.build()).withDate(resi_dv);
+        AddressStructure.Builder resi_asb = new AddressStructure.Builder(resi_ab.build());
+        EventDetail.Builder resi_ed = new EventDetail.Builder().withAddress(resi_asb.build()).withDate(resi_dv);
 
         IndividualEventStructure birth_ies = new IndividualEventStructure(IndividualEventType.BIRT, ed.build());
         IndividualEventStructure death_ies = new IndividualEventStructure(IndividualEventType.DEAT, d_ed.build());
@@ -256,7 +259,7 @@ class GedcomModelTest {
 
         ChildFamilyLink cfl = new ChildFamilyLink(4);
         ChildFamilyLink cfl2 = new ChildFamilyLink(9, Pedigree.ADOPTED);
-        IndividualEventStructure indiStruct = new IndividualEventStructure(IndividualEventType.BIRT, ed.build());
+        IndividualEventStructure indiStruct = new IndividualEventStructure(IndividualEventType.BIRT, ed.build(),4);
 
         DateValue adop_dv = new DateValue(DateCalendar.DGREGORIAN, new GregorianDate(1864, 3, 16), false);
         EventDetail.Builder adop_ed = new EventDetail.Builder()

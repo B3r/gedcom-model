@@ -1,8 +1,9 @@
 package it.marvin_flock.gedcom.records;
 
-import it.marvin_flock.gedcom.Addr;
 import it.marvin_flock.gedcom.MediaLink;
 import it.marvin_flock.gedcom.dates.ChangeDate;
+import it.marvin_flock.gedcom.structures.AddressStructure;
+import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -12,11 +13,12 @@ import java.util.List;
 public class SubmitterRecord extends Record {
 
     private final String name;
-    private final Addr address;
+    private final AddressStructure address;
     private final List<MediaLink> mmLinks;
     private final List<String> languages;
     private final String registerId;
     private final String recordId;
+    private final List<NoteStructure> notes;
     private final ChangeDate changeDate;
 
     public SubmitterRecord(Builder builder) {
@@ -27,6 +29,7 @@ public class SubmitterRecord extends Record {
         this.languages = builder.languages;
         this.registerId = builder.registerId;
         this.recordId = builder.recordId;
+        this.notes = builder.notes;
         this.changeDate = builder.changeDate;
     }
 
@@ -54,6 +57,10 @@ public class SubmitterRecord extends Record {
         appendSimpleStringFor("RFN", registerId, subLevel, sb);
         appendSimpleStringFor("RIN", recordId, subLevel, sb);
 
+        if (notes != null) {
+            notes.forEach(note -> sb.append(note.toString(subLevel)));
+        }
+
         if (changeDate != null) {
             sb.append(changeDate.toString(subLevel));
         }
@@ -65,11 +72,12 @@ public class SubmitterRecord extends Record {
 
         private final String name;
         private final int id;
-        private Addr address;
+        private AddressStructure address;
         private List<MediaLink> mmLinks;
         private List<String> languages;
         private String registerId;
         private String recordId;
+        private List<NoteStructure> notes;
         private ChangeDate changeDate;
 
         public Builder(int id, @NonNull String name) {
@@ -77,7 +85,7 @@ public class SubmitterRecord extends Record {
             this.name = name;
         }
 
-        public Builder withAddress(@NonNull Addr address) {
+        public Builder withAddress(@NonNull AddressStructure address) {
             this.address = address;
             return this;
         }
@@ -99,6 +107,11 @@ public class SubmitterRecord extends Record {
 
         public Builder withRecordId(@NonNull String recordId) {
             this.recordId = recordId;
+            return this;
+        }
+
+        public Builder withNotes(@NonNull List<NoteStructure> notes) {
+            this.notes = notes;
             return this;
         }
 

@@ -1,8 +1,8 @@
 package it.marvin_flock.gedcom.records;
 
-import it.marvin_flock.gedcom.Addr;
 import it.marvin_flock.gedcom.UserReference;
 import it.marvin_flock.gedcom.dates.ChangeDate;
+import it.marvin_flock.gedcom.structures.AddressStructure;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.NonNull;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class RepositoryRecord extends Record {
 
     private final String name;
-    private final Addr address;
+    private final AddressStructure address;
     private final List<NoteStructure> notes;
     private final List<UserReference> userRefs;
     private final String recordId;
@@ -59,23 +59,19 @@ public class RepositoryRecord extends Record {
     public static class Builder {
 
         private final int id;
-        private String name;
-        private Addr address;
+        private final String name;
+        private AddressStructure address;
         private List<NoteStructure> notes;
         private List<UserReference> userRefs;
         private String recordId;
         private ChangeDate changeDate;
 
-        public Builder(int id) {
+        public Builder(int id, @NonNull String name) {
             this.id = id;
-        }
-
-        public Builder withName(@NonNull String name) {
             this.name = name;
-            return this;
         }
 
-        public Builder withAddress(@NonNull Addr address) {
+        public Builder withAddress(@NonNull AddressStructure address) {
             this.address = address;
             return this;
         }

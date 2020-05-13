@@ -38,7 +38,18 @@ public class SourceCitation extends GedcomElement {
         final int subLevel = level + 1;
         final StringBuilder sb = new StringBuilder();
 
-        if (description != null) {
+        if (sourceReferenceId != null) {
+            appendReferenceFor("SOUR", sourceReferenceId, level, sb);
+            appendSimpleStringFor("PAGE", page, subLevel, sb);
+
+            if (event != null) {
+                sb.append(event.toString(subLevel));
+            }
+
+            if (data != null) {
+                sb.append(data.toString(subLevel));
+            }
+        } else {
             appendMultiLineFor("SOUR", description, CONT, LINE_SIZE_248, level, sb);
             appendMultiLineFor("TEXT", sourceText, CONT, LINE_SIZE_248, subLevel, sb);
             if (notes != null) {
@@ -47,27 +58,16 @@ public class SourceCitation extends GedcomElement {
             return sb.toString();
         }
 
-        appendReferenceFor("SOUR", sourceReferenceId, level, sb);
-        appendSimpleStringFor("PAGE", page, subLevel, sb);
-
-        if (event != null) {
-            sb.append(event.toString(subLevel));
-        }
-
-        if (data != null) {
-            sb.append(data.toString(subLevel));
-        }
-
-        if (quay != null) {
-            appendSimpleStringFor("QUAY", Integer.toString(quay.ordinal()), subLevel, sb);
-        }
-
         if (mmLinks != null) {
             mmLinks.forEach(mmLink -> sb.append(mmLink.toString(subLevel)));
         }
 
         if (notes != null) {
             notes.forEach(note -> sb.append(note.toString(subLevel)));
+        }
+
+        if (quay != null) {
+            appendSimpleStringFor("QUAY", Integer.toString(quay.ordinal()), subLevel, sb);
         }
 
         return sb.toString();

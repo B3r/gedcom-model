@@ -3,8 +3,9 @@ package it.marvin_flock.gedcom.records;
 import it.marvin_flock.gedcom.MediaLink;
 import it.marvin_flock.gedcom.UserReference;
 import it.marvin_flock.gedcom.dates.ChangeDate;
+import it.marvin_flock.gedcom.enums.Restriction;
 import it.marvin_flock.gedcom.ordinance.SpouseSealing;
-import it.marvin_flock.gedcom.sources.SourceCitationNotable;
+import it.marvin_flock.gedcom.sources.SourceCitation;
 import it.marvin_flock.gedcom.structures.FamilyEventStructure;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.NonNull;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class FamilyRecord extends Record {
 
+    private final Restriction restrictionNotice;
     private final List<FamilyEventStructure> events;
     private final Integer husband;
     private final Integer wife;
@@ -20,15 +22,16 @@ public class FamilyRecord extends Record {
     private final Integer childrenCount;
     private final List<Integer> submitters;
     private final List<SpouseSealing> spouseSealings;
-    private final List<SourceCitationNotable> sourceCitations;
+    private final List<UserReference> userRefs;
+    private final List<SourceCitation> sourceCitations;
     private final List<MediaLink> mmLinks;
     private final List<NoteStructure> notes;
-    private final List<UserReference> userRefs;
     private final String recordId;
     private final ChangeDate changeDate;
 
     public FamilyRecord(Builder builder) {
         super(builder.id);
+        this.restrictionNotice = builder.restrictionNotice;
         this.events = builder.events;
         this.husband = builder.husband;
         this.wife = builder.wife;
@@ -50,6 +53,10 @@ public class FamilyRecord extends Record {
         final StringBuilder sb = new StringBuilder();
 
         appendSimpleIdFor("FAM", id, level, sb);
+
+        if (restrictionNotice != null) {
+            appendSimpleStringFor("RESN", restrictionNotice.toString().toLowerCase(), subLevel, sb);
+        }
 
         if (events != null) {
             events.forEach(event -> sb.append(event.toString(subLevel)));
@@ -73,17 +80,6 @@ public class FamilyRecord extends Record {
             spouseSealings.forEach(spouseSealing -> sb.append(spouseSealing.toString(subLevel)));
         }
 
-        if (sourceCitations != null) {
-            sourceCitations.forEach(sourceCitation -> sb.append(sourceCitation.toString(subLevel)));
-        }
-
-        if (mmLinks != null) {
-            mmLinks.forEach(mmLink -> sb.append(mmLink.toString(subLevel)));
-        }
-        if (notes != null) {
-            notes.forEach(note -> sb.append(note.toString(subLevel)));
-        }
-
         if (userRefs != null) {
             userRefs.forEach(userReference -> sb.append(userReference.toString(subLevel)));
         }
@@ -94,12 +90,25 @@ public class FamilyRecord extends Record {
             sb.append(changeDate.toString(subLevel));
         }
 
+        if (notes != null) {
+            notes.forEach(note -> sb.append(note.toString(subLevel)));
+        }
+
+        if (sourceCitations != null) {
+            sourceCitations.forEach(sourceCitation -> sb.append(sourceCitation.toString(subLevel)));
+        }
+
+        if (mmLinks != null) {
+            mmLinks.forEach(mmLink -> sb.append(mmLink.toString(subLevel)));
+        }
+
         return sb.toString();
     }
 
     public static class Builder {
 
         private final int id;
+        private Restriction restrictionNotice;
         private List<FamilyEventStructure> events;
         private Integer husband;
         private Integer wife;
@@ -107,7 +116,7 @@ public class FamilyRecord extends Record {
         private Integer childrenCount;
         private List<Integer> submitters;
         private List<SpouseSealing> spouseSealings;
-        private List<SourceCitationNotable> sourceCitations;
+        private List<SourceCitation> sourceCitations;
         private List<MediaLink> mmLinks;
         private List<NoteStructure> notes;
         private List<UserReference> userRefs;
@@ -116,6 +125,11 @@ public class FamilyRecord extends Record {
 
         public Builder(int id) {
             this.id = id;
+        }
+
+        public Builder withRestrictionNotice(@NonNull Restriction restrictionNotice) {
+            this.restrictionNotice = restrictionNotice;
+            return this;
         }
 
         public Builder withEvents(@NonNull List<FamilyEventStructure> events) {
@@ -153,7 +167,7 @@ public class FamilyRecord extends Record {
             return this;
         }
 
-        public Builder withSourceCitations(@NonNull List<SourceCitationNotable> sourceCitations) {
+        public Builder withSourceCitations(@NonNull List<SourceCitation> sourceCitations) {
             this.sourceCitations = sourceCitations;
             return this;
         }

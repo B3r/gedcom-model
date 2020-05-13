@@ -1,10 +1,8 @@
 package it.marvin_flock.gedcom;
 
 
-import it.marvin_flock.gedcom.structures.NoteStructure;
+import it.marvin_flock.gedcom.enums.MediaType;
 import lombok.NonNull;
-
-import java.util.List;
 
 /**
  * TODO embedded form is pointing to MULTIMEDIA_RECORD
@@ -17,14 +15,14 @@ public class MediaLink extends GedcomElement {
     private final String format;
     private final String title;
     private final String fileReference;
-    private final List<NoteStructure> notes;
+    private final MediaType mediaType;
 
     private MediaLink(Builder builder) {
         this.mmRecordId = builder.mmRecordId;
         this.format = builder.format;
         this.title = builder.title;
         this.fileReference = builder.fileReference;
-        this.notes = builder.notes;
+        this.mediaType = builder.mediaType;
     }
 
     @Override
@@ -38,24 +36,26 @@ public class MediaLink extends GedcomElement {
         }
 
         appendBlankFor("OBJE", level, sb);
-        appendSimpleStringFor("FORM", format, subLevel, sb);
-        appendSimpleStringFor("TITL", title, subLevel, sb);
         appendSimpleStringFor("FILE", fileReference, subLevel, sb);
-
-        if (notes != null) {
-            notes.forEach(note -> sb.append(note.toString(subLevel)));
+        if (format != null) {
+            appendSimpleStringFor("FORM", format, subLevel + 1, sb);
+            if (mediaType != null) {
+                appendSimpleStringFor("MEDI", mediaType.toString().toLowerCase(), subLevel + 2, sb);
+            }
         }
+        appendSimpleStringFor("TITL", title, subLevel, sb);
+
         return sb.toString();
     }
 
 
     public static class Builder {
 
+        private MediaType mediaType;
         private Integer mmRecordId;
         private String format;
         private String title;
         private String fileReference;
-        private List<NoteStructure> notes;
 
         public Builder(@NonNull Integer multiMediaRecordReferenceId) {
             this.mmRecordId = multiMediaRecordReferenceId;
@@ -71,8 +71,8 @@ public class MediaLink extends GedcomElement {
             return this;
         }
 
-        public Builder withNotes(@NonNull List<NoteStructure> notes) {
-            this.notes = notes;
+        public Builder withMediaType(@NonNull MediaType mediaType) {
+            this.mediaType = mediaType;
             return this;
         }
 

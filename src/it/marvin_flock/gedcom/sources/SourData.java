@@ -6,6 +6,7 @@ import lombok.NonNull;
 
 public class SourData extends GedcomElement {
 
+
     private final String name;
     private final DateExact date;
     private final String copyright;
@@ -29,7 +30,7 @@ public class SourData extends GedcomElement {
             sb.append(date.toString(subLevel));
         }
 
-        appendSimpleStringFor("COPR", copyright, subLevel, sb);
+        appendMultiLineFor("COPR", copyright, CONT, LINE_SIZE_90, subLevel, sb);
 
         return sb.toString();
     }

@@ -16,6 +16,9 @@ public class SpouseSealing extends Ordinance {
 
     public SpouseSealing(SpouseSealingStatus status, DateValue date, String templeCode, String place, List<SourceCitation> sourceCitations, List<NoteStructure> notes) {
         super(date, templeCode, place, sourceCitations, notes);
+        if (status != null && date == null) {
+            throw new IllegalArgumentException("If status is given, date may not be empty");
+        }
         this.status = status;
     }
 
@@ -28,6 +31,7 @@ public class SpouseSealing extends Ordinance {
 
         if (status != null) {
             appendSimpleStringFor("STAT", status.toString(), subLevel, sb);
+            sb.append(date.toString(subLevel + 1));
         }
 
         sb.append(super.toString(subLevel));

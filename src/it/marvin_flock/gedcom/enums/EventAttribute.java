@@ -45,5 +45,6 @@ public enum EventAttribute {
     PROP,
     RELI,
     RESI,
-    TITL
+    TITL,
+    FACT
 }

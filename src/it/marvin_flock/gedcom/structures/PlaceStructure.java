@@ -1,8 +1,9 @@
 package it.marvin_flock.gedcom.structures;
 
 
+import it.marvin_flock.gedcom.Coordinate;
 import it.marvin_flock.gedcom.GedcomElement;
-import it.marvin_flock.gedcom.sources.SourceCitation;
+import it.marvin_flock.gedcom.NameVariation;
 import lombok.NonNull;
 
 import java.util.List;
@@ -11,14 +12,20 @@ public class PlaceStructure extends GedcomElement {
 
     private final String place;
     private final String form;
-    private final List<SourceCitation> citations;
+
+    private final List<NameVariation> phonetics;
+    private final List<NameVariation> romanized;
+
+    private final Coordinate map;
     private final List<NoteStructure> notes;
 
     public PlaceStructure(Builder builder) {
         this.place = builder.place;
         this.form = builder.form;
-        this.citations = builder.citations;
         this.notes = builder.notes;
+        this.phonetics = builder.phonetics;
+        this.romanized = builder.romanized;
+        this.map = builder.map;
     }
 
     @Override
@@ -29,8 +36,16 @@ public class PlaceStructure extends GedcomElement {
         appendSimpleStringFor("PLAC", place, level, sb);
         appendSimpleStringFor("FORM", form, subLevel, sb);
 
-        if (citations != null) {
-            citations.forEach(sourceCitation -> sb.append(sourceCitation.toString(level)));
+        if (phonetics != null) {
+            phonetics.forEach(phonetic -> sb.append(phonetic.toString(subLevel)));
+        }
+
+        if (romanized != null) {
+            romanized.forEach(roman -> sb.append(roman.toString(subLevel)));
+        }
+
+        if (map != null) {
+            sb.append(map.toString(subLevel));
         }
 
         if (notes != null) {
@@ -42,8 +57,10 @@ public class PlaceStructure extends GedcomElement {
 
     public static class Builder {
         private final String place;
+        private Coordinate map;
+        private List<NameVariation> phonetics;
+        private List<NameVariation> romanized;
         private String form;
-        private List<SourceCitation> citations;
         private List<NoteStructure> notes;
 
         public Builder(@NonNull String place) {
@@ -55,8 +72,18 @@ public class PlaceStructure extends GedcomElement {
             return this;
         }
 
-        public Builder withSourceCitations(@NonNull List<SourceCitation> citations) {
-            this.citations = citations;
+        public Builder withMap(@NonNull Coordinate map) {
+            this.map = map;
+            return this;
+        }
+
+        public Builder withPhonetics(@NonNull List<NameVariation> phonetics) {
+            this.phonetics = phonetics;
+            return this;
+        }
+
+        public Builder withRomanized(@NonNull List<NameVariation> romanized) {
+            this.romanized = romanized;
             return this;
         }
 

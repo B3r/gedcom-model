@@ -18,9 +18,6 @@ public class UserReference extends GedcomElement {
 
     @Override
     public String toString(int level) {
-        if (reference == null) {
-            throw new NullPointerException("reference may not be empty");
-        }
         final int subLevel = level + 1;
         final StringBuilder sb = new StringBuilder();
 

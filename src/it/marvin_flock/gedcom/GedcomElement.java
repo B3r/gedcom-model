@@ -9,6 +9,7 @@ import java.util.List;
 public abstract class GedcomElement {
     protected static final String CONT = "CONT";
     protected static final int LINE_SIZE_60 = 60;
+    protected static final int LINE_SIZE_90 = 90;
     protected static final int LINE_SIZE_248 = 248;
     protected static final int LINE_SIZE_255 = 255;
 

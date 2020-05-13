@@ -1,7 +1,9 @@
 package it.marvin_flock.gedcom.structures;
 
 import it.marvin_flock.gedcom.GedcomElement;
-import it.marvin_flock.gedcom.sources.SourceCitationNotable;
+import it.marvin_flock.gedcom.NamePiece;
+import it.marvin_flock.gedcom.NameVariation;
+import it.marvin_flock.gedcom.enums.NameType;
 import lombok.NonNull;
 
 import java.util.List;
@@ -10,22 +12,20 @@ public class NameStructure extends GedcomElement {
 
     private final String lastName;
     private final String firstName;
-    private final String prefix;
-    private final String nick;
-    private final String lastNamePrefix;
-    private final String suffix;
-    private final List<SourceCitationNotable> citations;
-    private final List<NoteStructure> notes;
+    private final NamePiece namePiece;
+    private final NameType type;
+    private final String ownType;
+    private final List<NameVariation> phonetics;
+    private final List<NameVariation> romanized;
 
     public NameStructure(Builder builder) {
         this.lastName = builder.lastName;
         this.firstName = builder.firstName;
-        this.prefix = builder.prefix;
-        this.nick = builder.nick;
-        this.lastNamePrefix = builder.lastNamePrefix;
-        this.suffix = builder.suffix;
-        this.citations = builder.citations;
-        this.notes = builder.notes;
+        this.namePiece = builder.namePiece;
+        this.type = builder.type;
+        this.ownType = builder.ownType;
+        this.phonetics = builder.phonetics;
+        this.romanized = builder.romanized;
     }
 
     @Override
@@ -51,19 +51,22 @@ public class NameStructure extends GedcomElement {
         }
         sb.append(fullStop);
 
-        appendSimpleStringFor("NPFX", prefix, subLevel, sb);
-        appendSimpleStringFor("GIVN", firstName, subLevel, sb);
-        appendSimpleStringFor("NICK", nick, subLevel, sb);
-        appendSimpleStringFor("SPFX", lastNamePrefix, subLevel, sb);
-        appendSimpleStringFor("SURN", lastName, subLevel, sb);
-        appendSimpleStringFor("NSFX", suffix, subLevel, sb);
-
-        if (citations != null) {
-            citations.forEach(sourceCitation -> sb.append(sourceCitation.toString(subLevel)));
+        if (type != null) {
+            appendSimpleStringFor("TYPE", type.toString().toLowerCase(), subLevel, sb);
+        } else if (ownType != null) {
+            appendSimpleStringFor("TYPE", ownType, subLevel, sb);
         }
 
-        if (notes != null) {
-            notes.forEach(note -> sb.append(note.toString(subLevel)));
+        if (namePiece != null) {
+            sb.append(namePiece.toString(subLevel));
+        }
+
+        if (phonetics != null) {
+            phonetics.forEach(phonetic -> sb.append(phonetic.toString(subLevel)));
+        }
+
+        if (romanized != null) {
+            romanized.forEach(roman -> sb.append(roman.toString(subLevel)));
         }
 
         return sb.toString();
@@ -72,12 +75,11 @@ public class NameStructure extends GedcomElement {
     public static class Builder {
         private final String lastName;
         private final String firstName;
-        private String prefix;
-        private String nick;
-        private String lastNamePrefix;
-        private String suffix;
-        private List<SourceCitationNotable> citations;
-        private List<NoteStructure> notes;
+        private List<NameVariation> phonetics;
+        private List<NameVariation> romanized;
+        private String ownType;
+        private NameType type;
+        private NamePiece namePiece;
 
         public Builder(String lastName, String firstName) {
             if (lastName == null && firstName == null) {
@@ -87,33 +89,28 @@ public class NameStructure extends GedcomElement {
             this.firstName = firstName;
         }
 
-        public Builder withPrefix(@NonNull String prefix) {
-            this.prefix = prefix;
+        public Builder withType(@NonNull NameType nameType) {
+            this.type = nameType;
             return this;
         }
 
-        public Builder withNickname(@NonNull String nickname) {
-            this.nick = nickname;
+        public Builder withOwnType(@NonNull String ownType) {
+            this.ownType = ownType;
             return this;
         }
 
-        public Builder withLastNamePrefix(@NonNull String prefix) {
-            this.lastNamePrefix = prefix;
+        public Builder withNamePiece(@NonNull NamePiece namePiece) {
+            this.namePiece = namePiece;
             return this;
         }
 
-        public Builder withSuffix(@NonNull String suffix) {
-            this.suffix = suffix;
+        public Builder withPhonetics(@NonNull List<NameVariation> phonetics) {
+            this.phonetics = phonetics;
             return this;
         }
 
-        public Builder withSourceCitations(@NonNull List<SourceCitationNotable> citations) {
-            this.citations = citations;
-            return this;
-        }
-
-        public Builder withNotes(@NonNull List<NoteStructure> notes) {
-            this.notes = notes;
+        public Builder withRomanized(@NonNull List<NameVariation> romanized) {
+            this.romanized = romanized;
             return this;
         }
 

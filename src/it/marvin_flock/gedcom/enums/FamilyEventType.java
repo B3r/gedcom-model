@@ -6,10 +6,11 @@ public enum FamilyEventType {
     DIV,
     DIVF,
     ENGA,
-    MARR,
     MARB,
     MARC,
+    MARR,
     MARL,
     MARS,
+    RESI,
     EVEN
 }

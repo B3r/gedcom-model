@@ -1,7 +1,7 @@
 package it.marvin_flock.gedcom.sources;
 
-import it.marvin_flock.gedcom.Addr;
 import it.marvin_flock.gedcom.GedcomElement;
+import it.marvin_flock.gedcom.structures.AddressStructure;
 import lombok.NonNull;
 
 public class Sour extends GedcomElement {
@@ -10,7 +10,7 @@ public class Sour extends GedcomElement {
     private final String version;
     private final String productName;
     private final String businessName;
-    private final Addr address;
+    private final AddressStructure address;
     private final SourData data;
 
     private Sour(Builder builder) {
@@ -50,7 +50,7 @@ public class Sour extends GedcomElement {
         private String version;
         private String productName;
         private String businessName;
-        private Addr address;
+        private AddressStructure address;
         private SourData data;
 
         public Builder(@NonNull String approvedSystemId) {
@@ -72,7 +72,7 @@ public class Sour extends GedcomElement {
             return this;
         }
 
-        public Builder withAddress(@NonNull Addr address) {
+        public Builder withAddress(@NonNull AddressStructure address) {
             this.address = address;
             return this;
         }

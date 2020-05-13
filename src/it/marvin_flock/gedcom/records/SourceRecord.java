@@ -15,7 +15,7 @@ public class SourceRecord extends Record {
     private final SourceData data;
     private final String auth;
     private final String title;
-    private final String shortTitle;
+    private final String abbr;
     private final String publication;
     private final String sourceText;
     private final SourceRepositoryCitation sourceRepositoryCitation;
@@ -30,7 +30,7 @@ public class SourceRecord extends Record {
         this.data = builder.data;
         this.auth = builder.auth;
         this.title = builder.title;
-        this.shortTitle = builder.shortTitle;
+        this.abbr = builder.abbr;
         this.publication = builder.publication;
         this.sourceText = builder.sourceText;
         this.sourceRepositoryCitation = builder.sourceRepositoryCitation;
@@ -54,19 +54,12 @@ public class SourceRecord extends Record {
 
         appendMultiLineFor("AUTH", auth, CONT, LINE_SIZE_248, subLevel, sb);
         appendMultiLineFor("TITL", title, CONT, LINE_SIZE_248, subLevel, sb);
-        appendSimpleStringFor("ABBR", shortTitle, subLevel, sb);
+        appendSimpleStringFor("ABBR", abbr, subLevel, sb);
         appendMultiLineFor("PUBL", publication, CONT, LINE_SIZE_248, subLevel, sb);
         appendMultiLineFor("TEXT", sourceText, CONT, LINE_SIZE_248, subLevel, sb);
 
         if (sourceRepositoryCitation != null) {
             sb.append(sourceRepositoryCitation.toString(subLevel));
-        }
-
-        if (mmLinks != null) {
-            mmLinks.forEach(mmLink -> sb.append(mmLink.toString(subLevel)));
-        }
-        if (notes != null) {
-            notes.forEach(note -> sb.append(note.toString(subLevel)));
         }
 
         if (userRefs != null) {
@@ -79,6 +72,14 @@ public class SourceRecord extends Record {
             sb.append(changeDate.toString(subLevel));
         }
 
+        if (notes != null) {
+            notes.forEach(note -> sb.append(note.toString(subLevel)));
+        }
+
+        if (mmLinks != null) {
+            mmLinks.forEach(mmLink -> sb.append(mmLink.toString(subLevel)));
+        }
+
         return sb.toString();
     }
 
@@ -88,7 +89,7 @@ public class SourceRecord extends Record {
         private SourceData data;
         private String auth;
         private String title;
-        private String shortTitle;
+        private String abbr;
         private String publication;
         private String sourceText;
         private SourceRepositoryCitation sourceRepositoryCitation;
@@ -117,8 +118,8 @@ public class SourceRecord extends Record {
             return this;
         }
 
-        public Builder withShortTitle(@NonNull String shortTitle) {
-            this.shortTitle = shortTitle;
+        public Builder withAbbreviation(@NonNull String abbreviation) {
+            this.abbr = abbreviation;
             return this;
         }
 

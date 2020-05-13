@@ -122,18 +122,6 @@ public class IndividualRecord extends Record {
             desis.forEach(desi -> appendReferenceFor("DESI", desi, subLevel, sb));
         }
 
-        if (sourceCitations != null) {
-            sourceCitations.forEach(sourceCitation -> sb.append(sourceCitation.toString(subLevel)));
-        }
-
-        if (mmLinks != null) {
-            mmLinks.forEach(mmLink -> sb.append(mmLink.toString(subLevel)));
-        }
-
-        if (notes != null) {
-            notes.forEach(note -> sb.append(note.toString(subLevel)));
-        }
-
         appendSimpleStringFor("RFN", recordFileNr, subLevel, sb);
         appendSimpleStringFor("AFN", ancestralFileNr, subLevel, sb);
 
@@ -145,6 +133,18 @@ public class IndividualRecord extends Record {
 
         if (changeDate != null) {
             sb.append(changeDate.toString(subLevel));
+        }
+
+        if (notes != null) {
+            notes.forEach(note -> sb.append(note.toString(subLevel)));
+        }
+
+        if (sourceCitations != null) {
+            sourceCitations.forEach(sourceCitation -> sb.append(sourceCitation.toString(subLevel)));
+        }
+
+        if (mmLinks != null) {
+            mmLinks.forEach(mmLink -> sb.append(mmLink.toString(subLevel)));
         }
 
         return sb.toString();

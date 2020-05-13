@@ -10,8 +10,6 @@
 1 CHAR ANSEL
 0 @1@ INDI
 1 NAME Robert Eugene /Williams/
-2 GIVN Robert Eugene
-2 SURN Williams
 1 SEX M
 1 BIRT
 2 DATE 2 OCT 1822
@@ -32,8 +30,6 @@
 1 FAMS @9@
 0 @2@ INDI
 1 NAME Mary Ann /Wilson/
-2 GIVN Mary Ann
-2 SURN Wilson
 1 SEX F
 1 BIRT
 2 DATE BEF 1828
@@ -41,12 +37,11 @@
 1 FAMS @4@
 0 @3@ INDI
 1 NAME Joe /Williams/
-2 GIVN Joe
-2 SURN Williams
 1 SEX M
 1 BIRT
 2 DATE 11 JUN 1861
 2 PLAC Idaho Falls, Bonneville, Idaho
+2 FAMC @4@
 1 ADOP
 2 DATE 16 MAR 1864
 2 FAMC @9@

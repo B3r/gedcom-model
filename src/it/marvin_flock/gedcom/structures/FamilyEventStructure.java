@@ -14,6 +14,7 @@ import lombok.NonNull;
 public class FamilyEventStructure extends GedcomElement {
 
     private final FamilyEventType type;
+    private final String eventDescriptor;
     private final EventDetail event;
     private final EventAge ageOfHusband;
     private final EventAge ageOfWife;
@@ -23,6 +24,7 @@ public class FamilyEventStructure extends GedcomElement {
         this.event = builder.event;
         this.ageOfHusband = builder.ageOfHusband;
         this.ageOfWife = builder.ageOfWife;
+        this.eventDescriptor = builder.eventDescriptor;
     }
 
     @Override
@@ -32,12 +34,13 @@ public class FamilyEventStructure extends GedcomElement {
 
         if (needToAppendY()) {
             appendSimpleStringFor(type.toString(), "Y", level, sb);
+        } else if (type == FamilyEventType.EVEN && eventDescriptor != null) {
+            appendSimpleStringFor(type.toString(), eventDescriptor, level, sb);
         } else {
             appendBlankFor(type.toString(), level, sb);
         }
 
         if (event != null) {
-            sb.append(event.toString(subLevel));
 
             if (isGregorianDate()) {
                 GregorianDate date = ((GregorianDate) event.getDate().getDate());
@@ -56,6 +59,7 @@ public class FamilyEventStructure extends GedcomElement {
                     sb.append(ageOfWife.toString(date.asDate(), subLevel + 1));
                 }
             }
+            sb.append(event.toString(subLevel));
         }
 
         return sb.toString();
@@ -63,7 +67,7 @@ public class FamilyEventStructure extends GedcomElement {
 
     private boolean needToAppendY() {
         // if there is no event, or the event has no place and date, the line needs an 'Y'
-        return type != FamilyEventType.EVEN && (event == null || event.getDate() == null && event.getPlace() == null);
+        return type == FamilyEventType.MARR && (event == null || event.getDate() == null && event.getPlace() == null);
     }
 
     private boolean isGregorianDate() {
@@ -73,6 +77,7 @@ public class FamilyEventStructure extends GedcomElement {
 
     public static class Builder {
         private final FamilyEventType type;
+        private String eventDescriptor;
         private EventDetail event;
         private EventAge ageOfHusband;
         private EventAge ageOfWife;
@@ -83,6 +88,11 @@ public class FamilyEventStructure extends GedcomElement {
 
         public Builder withEventDetail(@NonNull EventDetail eventDetail) {
             this.event = eventDetail;
+            return this;
+        }
+
+        public Builder withEventDescriptor(@NonNull String eventDescriptor) {
+            this.eventDescriptor = eventDescriptor;
             return this;
         }
 

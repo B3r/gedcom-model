@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 public class Ordinance extends GedcomElement {
 
-    private DateValue date;
+    protected DateValue date;
     private String templeCode;
     private String place;
     private List<SourceCitation> sourceCitations;
@@ -33,20 +33,18 @@ public class Ordinance extends GedcomElement {
     @Override
     public String toString(int level) {
         final StringBuilder sb = new StringBuilder();
-
         if (date != null) {
             sb.append(date.toString(level));
         }
-
         appendSimpleStringFor("TEMP", templeCode, level, sb);
         appendSimpleStringFor("PLAC", place, level, sb);
 
-        if (sourceCitations != null) {
-            sourceCitations.forEach(sourceCitation -> sb.append(sourceCitation.toString(level)));
-        }
-
         if (notes != null) {
             notes.forEach(note -> sb.append(note.toString(level)));
+        }
+
+        if (sourceCitations != null) {
+            sourceCitations.forEach(sourceCitation -> sb.append(sourceCitation.toString(level)));
         }
 
         return sb.toString();
