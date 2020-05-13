@@ -22,6 +22,6 @@ Modifications of example file:
 - changed 'Microfilm' to 'film'
 
 ## How to use
-The main class of this model is `GedcomModel`
+The main class of this model is `GedcomModel`  
 Dates are reduced to Gregorian Dates for now  
 If other dates are needed, feel free to implement `IDate`
