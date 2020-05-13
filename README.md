@@ -11,7 +11,7 @@ Following elements are still in work (no guarantee on completeness of list):
 ## Release Notes  
 
 v0.1: Initial Implementation based on [this page](http://homepages.rootsweb.com/~pmcbride/gedcom/55gcch2.htm)  
-v0.2: Updated the codebase according to specification pdf (see /specification/gedcom-5.5.1.pdf)
+v0.2: Updated the codebase according to specification pdf (see /specification/gedcom-5.5.1.pdf)  
 v0.3: Added missing getters
 
 ## Test
