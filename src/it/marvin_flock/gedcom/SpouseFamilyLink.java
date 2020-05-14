@@ -3,9 +3,11 @@ package it.marvin_flock.gedcom;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class SpouseFamilyLink extends FamilyLink {
 
     public SpouseFamilyLink(@NonNull Integer familyId, List<NoteStructure> notes) {

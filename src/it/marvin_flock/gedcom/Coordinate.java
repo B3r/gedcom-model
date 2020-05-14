@@ -2,7 +2,10 @@ package it.marvin_flock.gedcom;
 
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
+
 @Getter
+@Setter
 public class Coordinate extends GedcomElement {
 
     private final String lat;

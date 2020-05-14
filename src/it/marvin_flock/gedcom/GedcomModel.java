@@ -4,6 +4,7 @@ import it.marvin_flock.gedcom.records.Record;
 import it.marvin_flock.gedcom.records.SubmissionRecord;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * this model is based on http://homepages.rootsweb.com/~pmcbride/gedcom/55gcch2.htm
  */
 @Getter
+@Setter
 public class GedcomModel {
 
     private final Header header;

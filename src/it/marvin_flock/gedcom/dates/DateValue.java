@@ -4,6 +4,7 @@ import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.enums.DateCalendar;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 
 /**
@@ -11,6 +12,7 @@ import lombok.NonNull;
  * Implementation only for gregorian dates so far
  */
 @Getter
+@Setter
 public class DateValue extends GedcomElement {
     private DateCalendar type;
     private boolean isInterpreted;

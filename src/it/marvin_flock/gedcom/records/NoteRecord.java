@@ -5,9 +5,11 @@ import it.marvin_flock.gedcom.dates.ChangeDate;
 import it.marvin_flock.gedcom.sources.SourceCitation;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class NoteRecord extends Record {
 
     private final String text;

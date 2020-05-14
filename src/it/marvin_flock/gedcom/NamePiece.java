@@ -4,9 +4,11 @@ import it.marvin_flock.gedcom.sources.SourceCitation;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class NamePiece extends GedcomElement {
     private final String prefix;
     private final String given;

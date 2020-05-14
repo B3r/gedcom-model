@@ -3,8 +3,10 @@ package it.marvin_flock.gedcom.dates;
 import it.marvin_flock.gedcom.enums.ApproxType;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class DateApprox implements IDate {
 
     private final ApproxType type;

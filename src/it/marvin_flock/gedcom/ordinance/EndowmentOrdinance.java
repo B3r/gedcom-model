@@ -5,9 +5,11 @@ import it.marvin_flock.gedcom.enums.EndowmentStatus;
 import it.marvin_flock.gedcom.sources.SourceCitation;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class EndowmentOrdinance extends Ordinance {
 
     private final EndowmentStatus status;

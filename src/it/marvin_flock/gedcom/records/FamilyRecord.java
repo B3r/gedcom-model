@@ -10,9 +10,11 @@ import it.marvin_flock.gedcom.structures.FamilyEventStructure;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class FamilyRecord extends Record {
 
     private final Restriction restrictionNotice;
@@ -46,6 +48,12 @@ public class FamilyRecord extends Record {
         this.userRefs = builder.userRefs;
         this.recordId = builder.recordId;
         this.changeDate = builder.changeDate;
+    }
+
+    public void addChild(Integer child) {
+        if(child != null) {
+            children.add(child);
+        }
     }
 
     @Override

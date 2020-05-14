@@ -5,7 +5,10 @@ import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.enums.AttributeType;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
+
 @Getter
+@Setter
 public class IndividualAttributeStructure extends GedcomElement {
 
     private final AttributeType type;

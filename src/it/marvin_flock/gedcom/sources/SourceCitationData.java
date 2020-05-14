@@ -3,9 +3,11 @@ package it.marvin_flock.gedcom.sources;
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.dates.DateValue;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class SourceCitationData extends GedcomElement {
 
     private DateValue date;

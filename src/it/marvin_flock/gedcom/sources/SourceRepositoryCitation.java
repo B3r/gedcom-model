@@ -3,9 +3,11 @@ package it.marvin_flock.gedcom.sources;
 import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class SourceRepositoryCitation extends GedcomElement {
     private final Integer repositoryId;
     private List<NoteStructure> notes;

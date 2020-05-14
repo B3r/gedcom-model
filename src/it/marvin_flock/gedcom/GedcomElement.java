@@ -1,12 +1,14 @@
 package it.marvin_flock.gedcom;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Getter
+@Setter
 public abstract class GedcomElement {
     protected static final String CONT = "CONT";
     protected static final int LINE_SIZE_60 = 60;

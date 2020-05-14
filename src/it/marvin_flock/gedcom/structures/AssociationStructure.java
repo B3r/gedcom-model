@@ -4,6 +4,7 @@ import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.sources.SourceCitation;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * How can it be 0 when there is a mandatory Relation {1:1}?
  */
 @Getter
+@Setter
 public class AssociationStructure extends GedcomElement {
     private final Integer individualId;
     private final String relation;

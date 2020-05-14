@@ -5,9 +5,11 @@ import it.marvin_flock.gedcom.Addr;
 import it.marvin_flock.gedcom.GedcomElement;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class AddressStructure extends GedcomElement {
 
     private final Addr address;

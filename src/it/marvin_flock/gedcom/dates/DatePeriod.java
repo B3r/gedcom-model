@@ -2,8 +2,10 @@ package it.marvin_flock.gedcom.dates;
 
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class DatePeriod implements IDate {
     private final IDate from;
     private final IDate to;

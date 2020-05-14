@@ -6,7 +6,10 @@ import it.marvin_flock.gedcom.enums.AdoptedBy;
 import it.marvin_flock.gedcom.enums.IndividualEventType;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
+
 @Getter
+@Setter
 public class IndividualEventStructure extends GedcomElement {
 
     private final IndividualEventType type;

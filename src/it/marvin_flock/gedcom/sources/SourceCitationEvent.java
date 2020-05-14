@@ -4,8 +4,10 @@ import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.enums.EventAttribute;
 import it.marvin_flock.gedcom.enums.Role;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class SourceCitationEvent extends GedcomElement {
     private final EventAttribute type;
     private Role role;

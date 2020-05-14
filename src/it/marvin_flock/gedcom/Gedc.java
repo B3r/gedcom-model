@@ -1,8 +1,10 @@
 package it.marvin_flock.gedcom;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class Gedc extends GedcomElement {
 
     private static final String VERSION = "5.5.1";

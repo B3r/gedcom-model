@@ -6,9 +6,11 @@ import it.marvin_flock.gedcom.enums.Quay;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class SourceCitation extends GedcomElement {
     private final Integer sourceReferenceId;
     private final String page;

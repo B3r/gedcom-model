@@ -5,9 +5,11 @@ import it.marvin_flock.gedcom.enums.Pedigree;
 import it.marvin_flock.gedcom.structures.NoteStructure;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class ChildFamilyLink extends FamilyLink {
     private Pedigree pedigree;
     private LinkageStatus status;

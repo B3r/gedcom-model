@@ -4,6 +4,7 @@ package it.marvin_flock.gedcom;
 import it.marvin_flock.gedcom.enums.MediaType;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 /**
  * TODO embedded form is pointing to MULTIMEDIA_RECORD
@@ -12,6 +13,7 @@ import lombok.NonNull;
  * [ bmp | gif | jpeg | ole | pcx | tiff | wav ]
  */
 @Getter
+@Setter
 public class MediaLink extends GedcomElement {
     private final Integer mmRecordId;
     private final String format;

@@ -6,9 +6,11 @@ import it.marvin_flock.gedcom.GedcomElement;
 import it.marvin_flock.gedcom.NameVariation;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.util.List;
 @Getter
+@Setter
 public class PlaceStructure extends GedcomElement {
 
     private final String place;

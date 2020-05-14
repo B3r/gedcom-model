@@ -4,7 +4,10 @@ import it.marvin_flock.gedcom.dates.DateTime;
 import it.marvin_flock.gedcom.sources.Sour;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
+
 @Getter
+@Setter
 public class Header extends GedcomElement {
 
     private final Sour source;

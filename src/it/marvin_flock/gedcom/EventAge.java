@@ -3,10 +3,12 @@ package it.marvin_flock.gedcom;
 import it.marvin_flock.gedcom.dates.Date;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Period;
 @Getter
+@Setter
 public class EventAge extends GedcomElement {
     private final Date date;
 
