@@ -4,7 +4,7 @@ This is my own try to transfer the gedcom 5.5.1 specifications into a java model
 ##### Warning: This model is not a valid gedcom model yet!  
 Use on your own responsibility and read this complete file for details!
 Following elements are still in work (no guarantee on completeness of list): 
-- Dates are reduced to Gregorian Dates
+- Dates reduced to Gregorian Dates
 - `MultimediaRecord` not yet implemented
 - File Types **_not_** restricted to  
 [ bmp | gif | jpeg | ole | pcx | tiff | wav ]
@@ -24,5 +24,5 @@ Modifications of example file:
 
 ## How to use
 The main class of this model is `GedcomModel`  
-Dates are reduced to Gregorian Dates for now  
-If other dates are needed, feel free to implement `IDate`
+Dates reduced to Gregorian Dates for now  
+If you need other dates, feel free to implement `IDate`
