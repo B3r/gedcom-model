@@ -7,8 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DatePeriod implements IDate {
-    private final IDate from;
-    private final IDate to;
+    private IDate from;
+    private IDate to;
 
     public DatePeriod(@NonNull IDate from, @NonNull IDate to) {
         this.from = from;

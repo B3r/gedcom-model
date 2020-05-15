@@ -15,11 +15,11 @@ public class NameStructure extends GedcomElement {
 
     private final String lastName;
     private final String firstName;
-    private final NamePiece namePiece;
-    private final NameType type;
-    private final String ownType;
-    private final List<NameVariation> phonetics;
-    private final List<NameVariation> romanized;
+    private NamePiece namePiece;
+    private NameType type;
+    private String ownType;
+    private List<NameVariation> phonetics;
+    private List<NameVariation> romanized;
 
     public NameStructure(Builder builder) {
         this.lastName = builder.lastName;

@@ -18,10 +18,10 @@ import lombok.Setter;
 public class FamilyEventStructure extends GedcomElement {
 
     private final FamilyEventType type;
-    private final String eventDescriptor;
-    private final EventDetail event;
-    private final EventAge ageOfHusband;
-    private final EventAge ageOfWife;
+    private String eventDescriptor;
+    private EventDetail event;
+    private EventAge ageOfHusband;
+    private EventAge ageOfWife;
 
     public FamilyEventStructure(Builder builder) {
         this.type = builder.type;

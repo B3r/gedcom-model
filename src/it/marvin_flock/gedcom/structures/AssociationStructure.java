@@ -17,8 +17,8 @@ import java.util.List;
 public class AssociationStructure extends GedcomElement {
     private final Integer individualId;
     private final String relation;
-    private final List<NoteStructure> notes;
-    private final List<SourceCitation> sourceCitations;
+    private List<NoteStructure> notes;
+    private List<SourceCitation> sourceCitations;
 
     public AssociationStructure(Builder builder) {
         this.individualId = builder.individualId;

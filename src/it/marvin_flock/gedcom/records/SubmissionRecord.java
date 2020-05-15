@@ -11,15 +11,15 @@ import java.util.List;
 @Setter
 public class SubmissionRecord extends Record {
 
-    private final Integer submitterReferenceId;
-    private final String familyFilename;
-    private final String templeCode;
-    private final Integer generationsOfAncestors;
-    private final Integer generationsOfDescendants;
-    private final Boolean ordinanceProcess;
-    private final String recordId;
-    private final List<NoteStructure> notes;
-    private final ChangeDate changeDate;
+    private Integer submitterReferenceId;
+    private String familyFilename;
+    private String templeCode;
+    private Integer generationsOfAncestors;
+    private Integer generationsOfDescendants;
+    private Boolean ordinanceProcess;
+    private String recordId;
+    private List<NoteStructure> notes;
+    private ChangeDate changeDate;
 
     public SubmissionRecord(Builder builder) {
         super(builder.id);

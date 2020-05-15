@@ -9,9 +9,9 @@ import lombok.Setter;
 @Setter
 public class DateRange implements IDate {
 
-    private final DateType type;
+    private DateType type;
 
-    private final IDate earlyDate;
+    private IDate earlyDate;
     private IDate lateDate;
 
     public DateRange(@NonNull DateType type, @NonNull IDate earlyDate) {

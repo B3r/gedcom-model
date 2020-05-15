@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 public class EndowmentOrdinance extends Ordinance {
 
-    private final EndowmentStatus status;
+    private EndowmentStatus status;
 
     public EndowmentOrdinance(EndowmentStatus status, DateValue date, String templeCode, String place, List<SourceCitation> sourceCitations, List<NoteStructure> notes) {
         super(date, templeCode, place, sourceCitations, notes);

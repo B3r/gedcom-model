@@ -13,24 +13,25 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.List;
+
 @Getter
 @Setter
 public class FamilyRecord extends Record {
 
-    private final Restriction restrictionNotice;
-    private final List<FamilyEventStructure> events;
-    private final Integer husband;
-    private final Integer wife;
-    private final List<Integer> children;
-    private final Integer childrenCount;
-    private final List<Integer> submitters;
-    private final List<SpouseSealing> spouseSealings;
-    private final List<UserReference> userRefs;
-    private final List<SourceCitation> sourceCitations;
-    private final List<MediaLink> mmLinks;
-    private final List<NoteStructure> notes;
-    private final String recordId;
-    private final ChangeDate changeDate;
+    private Restriction restrictionNotice;
+    private List<FamilyEventStructure> events;
+    private Integer husband;
+    private Integer wife;
+    private List<Integer> children;
+    private Integer childrenCount;
+    private List<Integer> submitters;
+    private List<SpouseSealing> spouseSealings;
+    private List<UserReference> userRefs;
+    private List<SourceCitation> sourceCitations;
+    private List<MediaLink> mmLinks;
+    private List<NoteStructure> notes;
+    private String recordId;
+    private ChangeDate changeDate;
 
     public FamilyRecord(Builder builder) {
         super(builder.id);
@@ -51,7 +52,7 @@ public class FamilyRecord extends Record {
     }
 
     public void addChild(Integer child) {
-        if(child != null) {
+        if (child != null) {
             children.add(child);
         }
     }

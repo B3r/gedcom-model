@@ -14,11 +14,11 @@ import java.util.List;
 public class RepositoryRecord extends Record {
 
     private final String name;
-    private final AddressStructure address;
-    private final List<NoteStructure> notes;
-    private final List<UserReference> userRefs;
-    private final String recordId;
-    private final ChangeDate changeDate;
+    private AddressStructure address;
+    private List<NoteStructure> notes;
+    private List<UserReference> userRefs;
+    private String recordId;
+    private ChangeDate changeDate;
 
     public RepositoryRecord(Builder builder) {
         super(builder.id);

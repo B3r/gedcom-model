@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 @Getter
 @Setter
 public class DateExact extends GedcomElement {
-    private final LocalDate date;
+    private LocalDate date;
 
     public DateExact(@NonNull LocalDate date) {
         this.date = date;

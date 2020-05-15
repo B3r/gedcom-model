@@ -13,16 +13,16 @@ import java.util.List;
 @Setter
 public class SourceCitation extends GedcomElement {
     private final Integer sourceReferenceId;
-    private final String page;
-    private final SourceCitationEvent event;
-    private final SourceCitationData data;
-    private final Quay quay;
+    private String page;
+    private SourceCitationEvent event;
+    private SourceCitationData data;
+    private Quay quay;
 
-    private final List<MediaLink> mmLinks;
-    private final List<NoteStructure> notes;
+    private List<MediaLink> mmLinks;
+    private List<NoteStructure> notes;
 
     private final String description;
-    private final String sourceText;
+    private String sourceText;
 
     protected SourceCitation(Builder builder) {
         this.sourceReferenceId = builder.sourceReferenceId;

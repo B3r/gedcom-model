@@ -10,12 +10,12 @@ import java.util.List;
 @Getter
 @Setter
 public class NamePiece extends GedcomElement {
-    private final String prefix;
-    private final String given;
-    private final String nick;
-    private final String surnamePrefix;
-    private final String surname;
-    private final String suffix;
+    private String prefix;
+    private String given;
+    private String nick;
+    private String surnamePrefix;
+    private String surname;
+    private String suffix;
 
     private final List<SourceCitation> citations;
     private final List<NoteStructure> notes;

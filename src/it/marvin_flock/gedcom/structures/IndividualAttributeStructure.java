@@ -13,7 +13,7 @@ public class IndividualAttributeStructure extends GedcomElement {
 
     private final AttributeType type;
     private String value;
-    private final EventDetail event;
+    private EventDetail event;
 
     public IndividualAttributeStructure(@NonNull AttributeType type, String value, EventDetail event) {
         this.type = type;

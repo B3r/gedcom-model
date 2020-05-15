@@ -10,10 +10,9 @@ import lombok.Setter;
 @Setter
 public class SourData extends GedcomElement {
 
-
-    private final String name;
-    private final DateExact date;
-    private final String copyright;
+    private String name;
+    private DateExact date;
+    private String copyright;
 
     public SourData(Builder builder) {
         this.name = builder.name;

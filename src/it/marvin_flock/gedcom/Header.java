@@ -11,17 +11,17 @@ import lombok.Setter;
 public class Header extends GedcomElement {
 
     private final Sour source;
-    private final String dest;
-    private final DateTime transDate;
+    private String dest;
+    private DateTime transDate;
     private final Integer submitterId;
-    private final Integer submissionId;
-    private final String filename;
-    private final String copyright;
+    private Integer submissionId;
+    private String filename;
+    private String copyright;
     private final Gedc gedcom;
-    private final String charset;
-    private final String language;
-    private final String place;
-    private final String note;
+    private String charset;
+    private String language;
+    private String place;
+    private String note;
 
     private Header(Builder builder) {
         this.source = builder.source;

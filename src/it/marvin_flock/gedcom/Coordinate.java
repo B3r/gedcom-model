@@ -8,8 +8,8 @@ import lombok.Setter;
 @Setter
 public class Coordinate extends GedcomElement {
 
-    private final String lat;
-    private final String lng;
+    private String lat;
+    private String lng;
 
     public Coordinate(@NonNull String lat, @NonNull String lng) {
         this.lat = lat;

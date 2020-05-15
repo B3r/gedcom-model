@@ -11,7 +11,7 @@ import lombok.Setter;
 public class SourceCallNumber extends GedcomElement {
 
     private final String callNumber;
-    private final MediaType mediaType;
+    private MediaType mediaType;
 
     public SourceCallNumber(@NonNull String callNumber, MediaType mediaType) {
         this.callNumber = callNumber;

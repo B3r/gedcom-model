@@ -14,13 +14,13 @@ import java.util.List;
 public class PlaceStructure extends GedcomElement {
 
     private final String place;
-    private final String form;
+    private String form;
 
-    private final List<NameVariation> phonetics;
-    private final List<NameVariation> romanized;
+    private List<NameVariation> phonetics;
+    private List<NameVariation> romanized;
 
-    private final Coordinate map;
-    private final List<NoteStructure> notes;
+    private Coordinate map;
+    private List<NoteStructure> notes;
 
     public PlaceStructure(Builder builder) {
         this.place = builder.place;

@@ -9,10 +9,10 @@ import lombok.Setter;
 public class Addr extends GedcomElement {
 
     private final String address;
-    private final String city;
-    private final String state;
-    private final String postal;
-    private final String country;
+    private String city;
+    private String state;
+    private String postal;
+    private String country;
 
     private Addr(Builder builder) {
         this.address = builder.address;

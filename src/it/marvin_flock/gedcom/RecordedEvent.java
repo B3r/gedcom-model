@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 @Setter
 public class RecordedEvent extends GedcomElement {
     private final List<EventAttribute> types;
-    private final DatePeriod date;
-    private final String place;
+    private DatePeriod date;
+    private String place;
 
     public RecordedEvent(@NonNull List<EventAttribute> types, DatePeriod date, String place) {
         this.types = types;

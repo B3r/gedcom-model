@@ -12,9 +12,9 @@ import java.time.Period;
 public class EventAge extends GedcomElement {
     private final Date date;
 
-    private final boolean isYounger;
-    private final boolean isOlder;
-    private final boolean isUnborn;
+    private boolean isYounger;
+    private boolean isOlder;
+    private boolean isUnborn;
 
     public EventAge(@NonNull Date date, boolean isYounger, boolean isOlder, boolean isUnborn) {
         this.date = date;

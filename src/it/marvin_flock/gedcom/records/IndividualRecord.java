@@ -19,27 +19,27 @@ import java.util.List;
 @Setter
 public class IndividualRecord extends Record {
 
-    private final Restriction restrictionNotice;
-    private final List<NameStructure> names;
-    private final Sex sex;
-    private final List<IndividualEventStructure> events;
-    private final List<IndividualAttributeStructure> attributes;
-    private final List<Ordinance> ordinances;
-    private final List<ChildFamilyLink> cLinks;
-    private final List<SpouseFamilyLink> sLinks;
-    private final List<Integer> submitters;
-    private final List<AssociationStructure> associations;
-    private final List<Integer> aliases;
-    private final List<Integer> ancis;
-    private final List<Integer> desis;
-    private final List<SourceCitation> sourceCitations;
-    private final List<MediaLink> mmLinks;
-    private final List<NoteStructure> notes;
-    private final String recordFileNr;
-    private final String ancestralFileNr;
-    private final List<UserReference> userRefs;
-    private final String recordId;
-    private final ChangeDate changeDate;
+    private Restriction restrictionNotice;
+    private List<NameStructure> names;
+    private Sex sex;
+    private List<IndividualEventStructure> events;
+    private List<IndividualAttributeStructure> attributes;
+    private List<Ordinance> ordinances;
+    private List<ChildFamilyLink> cLinks;
+    private List<SpouseFamilyLink> sLinks;
+    private List<Integer> submitters;
+    private List<AssociationStructure> associations;
+    private List<Integer> aliases;
+    private List<Integer> ancis;
+    private List<Integer> desis;
+    private List<SourceCitation> sourceCitations;
+    private List<MediaLink> mmLinks;
+    private List<NoteStructure> notes;
+    private String recordFileNr;
+    private String ancestralFileNr;
+    private List<UserReference> userRefs;
+    private String recordId;
+    private ChangeDate changeDate;
 
     public IndividualRecord(Builder builder) {
         super(builder.id);

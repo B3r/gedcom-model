@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 public class ChildSealOrdinance extends Ordinance {
     private ChildSealingStatus status;
-    private final Integer familyReference;
+    private Integer familyReference;
 
     public ChildSealOrdinance(@NonNull Integer familyReferenceId) {
         this.familyReference = familyReferenceId;

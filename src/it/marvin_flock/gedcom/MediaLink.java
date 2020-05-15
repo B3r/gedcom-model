@@ -16,10 +16,10 @@ import lombok.Setter;
 @Setter
 public class MediaLink extends GedcomElement {
     private final Integer mmRecordId;
-    private final String format;
-    private final String title;
-    private final String fileReference;
-    private final MediaType mediaType;
+    private String format;
+    private String title;
+    private String fileReference;
+    private MediaType mediaType;
 
     private MediaLink(Builder builder) {
         this.mmRecordId = builder.mmRecordId;

@@ -15,13 +15,13 @@ import java.util.List;
 public class SubmitterRecord extends Record {
 
     private final String name;
-    private final AddressStructure address;
-    private final List<MediaLink> mmLinks;
-    private final List<String> languages;
-    private final String registerId;
-    private final String recordId;
-    private final List<NoteStructure> notes;
-    private final ChangeDate changeDate;
+    private AddressStructure address;
+    private List<MediaLink> mmLinks;
+    private List<String> languages;
+    private String registerId;
+    private String recordId;
+    private List<NoteStructure> notes;
+    private ChangeDate changeDate;
 
     public SubmitterRecord(Builder builder) {
         super(builder.id);

@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 public class DateApprox implements IDate {
 
-    private final ApproxType type;
-    private final IDate date;
+    private ApproxType type;
+    private IDate date;
 
     public DateApprox(@NonNull ApproxType type, @NonNull IDate date) {
         this.type = type;

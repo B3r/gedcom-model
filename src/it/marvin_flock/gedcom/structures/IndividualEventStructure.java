@@ -13,7 +13,7 @@ import lombok.Setter;
 public class IndividualEventStructure extends GedcomElement {
 
     private final IndividualEventType type;
-    private final EventDetail event;
+    private EventDetail event;
     private AdoptedBy adoptedBy;
     private Integer familyId;
 

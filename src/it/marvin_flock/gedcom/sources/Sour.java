@@ -11,11 +11,11 @@ import lombok.Setter;
 public class Sour extends GedcomElement {
 
     private final String approvedSystemId;
-    private final String version;
-    private final String productName;
-    private final String businessName;
-    private final AddressStructure address;
-    private final SourData data;
+    private String version;
+    private String productName;
+    private String businessName;
+    private AddressStructure address;
+    private SourData data;
 
     private Sour(Builder builder) {
         this.approvedSystemId = builder.approvedSystemId;

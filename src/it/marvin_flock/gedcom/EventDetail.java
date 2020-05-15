@@ -16,17 +16,17 @@ import java.util.List;
 @Setter
 public class EventDetail extends GedcomElement {
 
-    private final String type;
-    private final DateValue date;
-    private final PlaceStructure place;
-    private final AddressStructure address;
-    private final String agency;
-    private final String religiousAffiliation;
-    private final String cause;
-    private final Restriction restriction;
-    private final List<NoteStructure> notes;
-    private final List<SourceCitation> sourceCitations;
-    private final List<MediaLink> mmLinks;
+    private String type;
+    private DateValue date;
+    private PlaceStructure place;
+    private AddressStructure address;
+    private String agency;
+    private String religiousAffiliation;
+    private String cause;
+    private Restriction restriction;
+    private List<NoteStructure> notes;
+    private List<SourceCitation> sourceCitations;
+    private List<MediaLink> mmLinks;
 
     public EventDetail(Builder builder) {
         this.type = builder.type;

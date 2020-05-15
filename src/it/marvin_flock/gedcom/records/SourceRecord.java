@@ -15,18 +15,18 @@ import java.util.List;
 @Setter
 public class SourceRecord extends Record {
 
-    private final SourceData data;
-    private final String auth;
-    private final String title;
-    private final String abbr;
-    private final String publication;
-    private final String sourceText;
-    private final SourceRepositoryCitation sourceRepositoryCitation;
-    private final List<MediaLink> mmLinks;
-    private final List<NoteStructure> notes;
-    private final List<UserReference> userRefs;
-    private final String recordId;
-    private final ChangeDate changeDate;
+    private SourceData data;
+    private String auth;
+    private String title;
+    private String abbr;
+    private String publication;
+    private String sourceText;
+    private SourceRepositoryCitation sourceRepositoryCitation;
+    private List<MediaLink> mmLinks;
+    private List<NoteStructure> notes;
+    private List<UserReference> userRefs;
+    private String recordId;
+    private ChangeDate changeDate;
 
     public SourceRecord(Builder builder) {
         super(builder.id);

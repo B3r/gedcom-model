@@ -13,10 +13,10 @@ import java.util.List;
 public class NoteRecord extends Record {
 
     private final String text;
-    private final List<SourceCitation> sourceCitations;
-    private final List<UserReference> userRefs;
-    private final String recordId;
-    private final ChangeDate changeDate;
+    private List<SourceCitation> sourceCitations;
+    private List<UserReference> userRefs;
+    private String recordId;
+    private ChangeDate changeDate;
 
     public NoteRecord(Builder builder) {
         super(builder.id);

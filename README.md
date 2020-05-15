@@ -26,3 +26,17 @@ Modifications of example file:
 The main class of this model is `GedcomModel`  
 Dates reduced to Gregorian Dates for now  
 If you need other dates, feel free to implement `IDate`
+
+To use it as a maven dependency, download the release and
+install it into the repository (replace capitalized words with your preferences):  
+```
+mvn install:install-file -Dfile=FILE_LOCATION -DgroupId=it.marvin_flock -DartifactId=gedcom-model -Dversion=VERSION -Dpackaging=jar -DgeneratePom=true
+```
+In your maven pom:
+```        
+           <dependency>
+               <groupId>it.marvin_flock</groupId>
+               <artifactId>gedcom-model</artifactId>
+               <version>PUT_VERSION_HERE</version>
+           </dependency>
+```

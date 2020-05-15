@@ -9,9 +9,9 @@ import lombok.Setter;
 @Setter
 public class NameVariation extends GedcomElement {
     private final VariationType variationType;
-    private final String name;
-    private final String type;
-    private final NamePiece namePiece;
+    private String name;
+    private String type;
+    private NamePiece namePiece;
 
     public NameVariation(Builder builder) {
         this.variationType = builder.variationType;

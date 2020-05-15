@@ -13,10 +13,10 @@ import java.util.List;
 public class AddressStructure extends GedcomElement {
 
     private final Addr address;
-    private final List<String> phones;
-    private final List<String> email;
-    private final List<String> fax;
-    private final List<String> www;
+    private List<String> phones;
+    private List<String> email;
+    private List<String> fax;
+    private List<String> www;
 
     public AddressStructure(Builder builder) {
         this.address = builder.address;
